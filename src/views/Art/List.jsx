@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import ArtCard from '../../components/Art/Card';
+import styles from '../../App.css';
 
 export default function ArtList() {
   const [artWorks, setArtWorks] = useState([]);
@@ -28,7 +29,7 @@ export default function ArtList() {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <div>
+        <div className={styles.list} >
           {artWorks.map((art) => {
             return (<ArtCard key={art.id} art={art} />);
           })}
