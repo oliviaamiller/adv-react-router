@@ -28,6 +28,6 @@ describe('Art Router', () => {
     userEvent.click(link);
 
     //check to see that more data is displaying
-    await screen.findByText('Belgium');
+    await screen.findByText('c. 1948, Belgium');
   });
 });
