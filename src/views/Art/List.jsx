@@ -6,21 +6,19 @@ import styles from '../../App.css';
 export default function ArtList() {
   const [artWorks, setArtWorks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const history = useHistory();
   const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
     async function getArt() {
       const res = await fetch(
         'https://api.artic.edu/api/v1/artworks/search?fields=id,title,place_of_origin,dimensions,image_id,artist_title,material_titles&limit=40&page=1&q=cats'
       );
-      const results  = await res.json();
+      const results = await res.json();
       setArtWorks(results.data);
       setLoading(false);
     }
     getArt();
-
-   
   }, []);
 
   return (
@@ -29,9 +27,9 @@ export default function ArtList() {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <div className={styles.list} >
+        <div className={styles.list}>
           {artWorks.map((art) => {
-            return (<ArtCard key={art.id} art={art} />);
+            return <ArtCard key={art.id} art={art} />;
           })}
         </div>
       )}
