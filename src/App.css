@@ -2,6 +2,10 @@
     width: 20rem;
 }
 
+.imgBig{
+    width: 35rem;
+}
+
 .card{
     border: 1px solid palevioletred;
     margin: 1rem;

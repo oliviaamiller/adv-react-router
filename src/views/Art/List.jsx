@@ -12,7 +12,7 @@ export default function ArtList() {
   useEffect(() => {
     async function getArt() {
       const res = await fetch(
-        'https://api.artic.edu/api/v1/artworks/search?fields=id,title,place_of_origin,dimensions,image_id,artist_title,material_titles&limit=40&page=1&q=cats'
+        'https://api.artic.edu/api/v1/artworks/search?fields=id,title,image_id,artist_title,&limit=12&page=1&q=cats'
       );
       const results = await res.json();
       setArtWorks(results.data);
