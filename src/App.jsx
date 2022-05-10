@@ -1,11 +1,11 @@
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import ArtList from './views/Art/List';
 import ArtDetails from './views/Art/Details';
-import { BrowserRouter as Router } from 'react-router-dom';
+//import { BrowserRouter as Router } from 'react-router-dom';
 
 export default function App() {
   return (
-    <Router>
+    
       <Switch>
         <Route path="/art/:id">
           <Link to="/">{'All Artworks'}</Link>
@@ -18,6 +18,6 @@ export default function App() {
           <Redirect to="/art" />
         </Route>
       </Switch>
-    </Router>
+
   );
 }
