@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import { MemoryRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
 
 describe('Art Router', () => {
   it('renders a list of art works', async () => {
@@ -14,18 +13,18 @@ describe('Art Router', () => {
     await screen.findAllByAltText('Artworks');
   });
 
-  it('should navigate to a detail page', async () => {
+  it.only('should render a specific a detail page given a url with an id', async () => {
     render(
-      <MemoryRouter initialEntries={['/art']}>
+      <MemoryRouter
+        initialEntries={['/art', '/art/22482']}
+        initialIndex={1}
+      >
         <App />
       </MemoryRouter>
     );
 
-    //check to find link 
-    const link = await screen.findByText('Homesickness');
-    
-    //user clicks on link
-    userEvent.click(link);
+    // user should be seeing detail information
+    await screen.findByText('Homesickness');
 
     //check to see that more data is displaying
     await screen.findByText('c. 1948, Belgium');
